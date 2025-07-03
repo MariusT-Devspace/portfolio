@@ -33,10 +33,12 @@
               "src/styles.sass"
             ],
             "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "prerender": {
+              "discoverRoutes": true,
+              "routesFile": "prerender-routes.txt"
+            },
+            "outputMode": "static",
+            "ssr": false
           },
           "configurations": {
             "production": {
@@ -99,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8dedd7a9-5f28-450f-af93-dbb125148d80"
   }
 }
