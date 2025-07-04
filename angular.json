@@ -127,7 +127,7 @@
               "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "es-development"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
@@ -139,7 +139,7 @@
               "buildTarget": "portfolio:build:development"
             }
           },
-          "defaultConfiguration": "es-development"
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
