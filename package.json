@@ -5,9 +5,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:es": "ng build --configuration=es-development",
+    "build:en": "ng build --configuration=en-development",
+    "build:es-prod": "ng build --configuration=es-production",
+    "build:en-prod": "ng build --configuration=en-production",
+    "build:all": "npm run build:es && npm run build:en",
+    "build:all-prod": "npm run build:es-prod && npm run build:en-prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "overrides": [
@@ -38,6 +43,7 @@
     "@angular/build": "^20.0.5",
     "@angular/cli": "^20.0.5",
     "@angular/compiler-cli": "^20.0.0",
+    "@angular/localize": "^20.0.6",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",

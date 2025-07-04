@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "portfolio": {
+      "i18n": {
+        "sourceLocale": "es-ES",
+        "locales": {
+          "en-US": "src/locale/messages.en.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,9 +23,11 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "localize": ["en-US"],
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "sass",
@@ -41,6 +49,62 @@
             "ssr": false
           },
           "configurations": {
+            "es-development": {
+              "aot": true,
+              "outputPath": "dist/portfolio/es",
+              "localize": ["es-ES"],
+              "i18nMissingTranslation": "warning",
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
+            "en-development": {
+              "aot": true,
+              "outputPath": "dist/portfolio/en",
+              "localize": ["en-US"],
+              "i18nMissingTranslation": "warning",
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
+            "es-production": {
+              "aot": true,
+              "outputPath": "dist/portfolio/es",
+              "localize": ["es-ES"],
+              "i18nMissingTranslation": "warning",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "en-production": {
+              "aot": true,
+              "outputPath": "dist/portfolio/en",
+              "localize": ["en-US"],
+              "i18nMissingTranslation": "warning",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "production": {
               "budgets": [
                 {
@@ -74,7 +138,7 @@
               "buildTarget": "portfolio:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "es-development"
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
@@ -84,7 +148,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "sass",
