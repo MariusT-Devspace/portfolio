@@ -5,12 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:es": "ng build --configuration=es-development",
-    "build:en": "ng build --configuration=en-development",
-    "build:es-prod": "ng build --configuration=es-production",
-    "build:en-prod": "ng build --configuration=en-production",
-    "build:all": "npm run build:es && npm run build:en",
-    "build:all-prod": "npm run build:es-prod && npm run build:en-prod",
+    "build:prod": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

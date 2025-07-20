@@ -5,9 +5,15 @@
   "projects": {
     "portfolio": {
       "i18n": {
-        "sourceLocale": "es-ES",
+        "sourceLocale": {
+          "code": "es-ES",
+          "subPath": ""
+        },
         "locales": {
-          "en-US": "src/locale/messages.en.xlf"
+          "en-US": {
+            "translation": "src/locale/messages.en.xlf",
+            "baseHref": "/en-US/"
+          }
         }
       },
       "projectType": "application",
@@ -50,63 +56,22 @@
             "ssr": false
           },
           "configurations": {
-            "es-development": {
+            "development": {
               "aot": true,
-              "outputPath": "dist/portfolio/es",
-              "localize": ["es-ES"],
+              "outputPath": "dist/portfolio",
+              "localize": true,
               "i18nMissingTranslation": "warning",
+              "baseHref": "/",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
-            },
-            "en-development": {
-              "aot": true,
-              "outputPath": "dist/portfolio/en",
-              "localize": ["en-US"],
-              "i18nMissingTranslation": "warning",
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            },
-            "es-production": {
-              "aot": true,
-              "outputPath": "dist/portfolio/es",
-              "localize": ["es-ES"],
-              "i18nMissingTranslation": "warning",
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "en-production": {
-              "aot": true,
-              "outputPath": "dist/portfolio/en",
-              "localize": ["en-US"],
-              "i18nMissingTranslation": "warning",
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
             },
             "production": {
+              "aot": true,
+              "outputPath": "dist/portfolio",
+              "localize": true,
+              "i18nMissingTranslation": "warning",
+              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
@@ -120,14 +85,9 @@
                 }
               ],
               "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
             }
           },
-          "defaultConfiguration": "es-development"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
