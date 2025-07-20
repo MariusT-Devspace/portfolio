@@ -5,9 +5,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navigation',
@@ -19,15 +20,24 @@ import { map, shareReplay } from 'rxjs/operators';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe,
+    AsyncPipe
   ]
 })
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
+  private matIconRegistry = inject(MatIconRegistry);
+  private sanitizer = inject(DomSanitizer);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
+  
+  ngOnInit(): void {
+    this.matIconRegistry.addSvgIcon(
+      'github', 
+      this.sanitizer.bypassSecurityTrustResourceUrl('/github-mark.svg')
+    );
+  }
 }

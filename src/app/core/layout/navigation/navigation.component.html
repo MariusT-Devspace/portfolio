@@ -3,12 +3,11 @@
       [attr.role]="'dialog'"
       [mode]="'over'"
       [opened]="false">
-    <mat-toolbar>Marius Tichieru</mat-toolbar>
+    <mat-toolbar>MariusDev</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Sobre mí</a>
       <a mat-list-item href="#">Proyectos</a>
       <a mat-list-item href="#">CV</a>
-      <a mat-list-item href="#">Github</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,7 +22,7 @@
         </button>
       }
       <a matButton="text" href="#" class="logo">
-        Marius Tichieru portfolio
+        MariusDev
       </a>
       <span class="spacer"></span>
       @if (!(isHandset$ | async)) {
@@ -31,7 +30,20 @@
         <a matButton="text" href="#">Proyectos</a>
         <a matButton="text" href="#">CV</a>
       }
-      <a matButton="text" href="#">Github</a>
+      @if (isHandset$ | async) {
+        <a matIconButton aria-label="GitHub" href="https://github.com/MariusT-Devspace/portfolio" 
+        class="github">
+          <mat-icon [svgIcon]="'github'"></mat-icon>
+        </a>
+      } 
+      @else {
+        <a matButton="outlined" href="https://github.com/MariusT-Devspace/portfolio" 
+          class="github">
+          <mat-icon [svgIcon]="'github'"></mat-icon>
+          Github
+        </a>
+      }
+
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>
