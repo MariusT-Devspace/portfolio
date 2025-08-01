@@ -11,40 +11,48 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      @if (isHandset$ | async) {
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          matIconButton
-          (click)="drawer.toggle()">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
-      }
+    <mat-toolbar color="primary" class="toolbar-mobile">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        matIconButton
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
       <a matButton="text" href="#" class="logo">
         MariusDev
       </a>
       <span class="spacer"></span>
-      @if (!(isHandset$ | async)) {
-        <a matButton="text" href="#">Sobre mí</a>
-        <a matButton="text" href="#">Proyectos</a>
-        <a matButton="text" href="#">CV</a>
-      }
-      @if (isHandset$ | async) {
-        <a matIconButton aria-label="GitHub" href="https://github.com/MariusT-Devspace/portfolio" 
+      <a matIconButton aria-label="GitHub" href="https://github.com/MariusT-Devspace/portfolio" 
         class="github">
           <mat-icon [svgIcon]="'github'"></mat-icon>
-        </a>
-      } 
-      @else {
-        <a matButton="outlined" href="https://github.com/MariusT-Devspace/portfolio" 
-          class="github">
-          <mat-icon [svgIcon]="'github'"></mat-icon>
-          Github
-        </a>
-      }
+      </a>
+    </mat-toolbar>
 
+    <mat-toolbar color="primary" class="toolbar-desktop">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        matIconButton
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      
+      <a matButton="text" href="#" class="logo">
+        MariusDev
+      </a>
+      <span class="spacer"></span>
+      <a matButton="text" href="#">Sobre mí</a>
+      <a matButton="text" href="#">Proyectos</a>
+      <a matButton="text" href="#">CV</a>
+    
+      <a matButton="outlined" href="https://github.com/MariusT-Devspace/portfolio" 
+        class="github">
+        <mat-icon [svgIcon]="'github'"></mat-icon>
+        Github
+      </a>
     </mat-toolbar>
     <!-- Add Content Here -->
+      <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,3 +1,9 @@
+.toolbar-mobile
+  display: flex
+
+.toolbar-desktop
+  display: none
+
 .sidenav-container 
   height: 100%
 
@@ -22,4 +28,12 @@
 
 // .logo 
 //   font-size: 1.3rem
+
+@media (min-width: 768px)
+  .toolbar-mobile
+    display: none
+    
+  .toolbar-desktop
+    display: flex
+
 

@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -9,6 +8,7 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -20,8 +20,8 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe
-  ]
+    RouterModule
+]
 })
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
