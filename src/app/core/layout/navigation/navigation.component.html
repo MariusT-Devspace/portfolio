@@ -12,25 +12,25 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="toolbar-mobile">
-      <button
+      <button class="toolbar-item"
         type="button"
         aria-label="Toggle sidenav"
         matIconButton
         (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a matButton="text" href="#" class="logo">
-        MariusDev
+      <a matButton="text" href="#" class="logo toolbar-item">
+        Marius Dev
       </a>
       <span class="spacer"></span>
       <a matIconButton aria-label="GitHub" href="https://github.com/MariusT-Devspace/portfolio" 
-        class="github">
+        class="github toolbar-item">
           <mat-icon [svgIcon]="'github'"></mat-icon>
       </a>
     </mat-toolbar>
 
     <mat-toolbar color="primary" class="toolbar-desktop">
-      <button
+      <button class="toolbar-item"
         type="button"
         aria-label="Toggle sidenav"
         matIconButton
@@ -38,21 +38,24 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       
-      <a matButton="text" href="#" class="logo">
+      <a matButton="text" href="#" class="logo toolbar-item">
         MariusDev
       </a>
       <span class="spacer"></span>
-      <a matButton="text" href="#">Sobre mí</a>
-      <a matButton="text" href="#">Proyectos</a>
-      <a matButton="text" href="#">CV</a>
+      <a matButton="text" href="#" class="toolbar-item">Sobre mí</a>
+      <a matButton="text" href="#" class="toolbar-item">Proyectos</a>
+      <a matButton="text" href="#" class="toolbar-item">CV</a>
     
       <a matButton="outlined" href="https://github.com/MariusT-Devspace/portfolio" 
-        class="github">
+        class="github toolbar-item">
         <mat-icon [svgIcon]="'github'"></mat-icon>
         Github
       </a>
     </mat-toolbar>
     <!-- Add Content Here -->
+    <div class="page-content">
       <router-outlet></router-outlet>
+    </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>

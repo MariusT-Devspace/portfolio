@@ -37,7 +37,7 @@ export class NavigationComponent {
   ngOnInit(): void {
     this.matIconRegistry.addSvgIcon(
       'github', 
-      this.sanitizer.bypassSecurityTrustResourceUrl('/github-mark.svg')
+      this.sanitizer.bypassSecurityTrustResourceUrl('/github-mark-white.svg')
     );
   }
 }

@@ -12,22 +12,32 @@
 
 .sidenav .mat-toolbar 
   background: inherit
+  position: relative
 
-.mat-toolbar.mat-primary 
-  position: sticky
+.mat-toolbar
+  position: absolute
+  background-color: transparent
   top: 0
-  z-index: 1
+  z-index: 99
+  -webkit-backdrop-filter: blur(4px)
+  backdrop-filter: blur(4px)
 
-.spacer 
-  flex: 1 1 auto
-
-.github
-  mat-icon 
-    width: 24px !important
-    height: 24px !important
+  .toolbar-item
+    color: white
+    &:hover
+      background-color: var(--mat-sys-primary) !important
+  .spacer 
+    flex: 1 1 auto
+  .github
+    mat-icon 
+      width: 24px !important
+      height: 24px !important
 
 // .logo 
 //   font-size: 1.3rem
+
+.page-content
+  padding-top: 56px
 
 @media (min-width: 768px)
   .toolbar-mobile
