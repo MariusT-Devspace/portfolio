@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+body
+    font-family: 'Inter', sans-serif
+    
+.text-primary
+    color: var(--mat-sys-primary-fixed) !important
+
+a, button
+    z-index: 99
+
+
+$neon-color: #2DD4BF
+$neon-glow: lighten($neon-color, 20%)
+
+.btn-neon
+    background: $neon-color !important
+    color: var(--mat-sys-on-primary-fixed-variant) !important
+    padding: 0.75rem 1.5rem
+    border-radius: 9999px
+    font-weight: 600
+    font-size: 1.1rem
+    border: none
+    cursor: pointer
+    transition: transform 0.2s ease, box-shadow 0.3s ease
+    box-shadow: 0 0 5px $neon-color, 0 0 10px $neon-color
+
+    &:hover
+        transform: scale(1.05)
+        box-shadow: 0 0 8px $neon-color, 0 0 16px $neon-color, 0 0 32px $neon-color, 0 0 64px $neon-color
+        background: $neon-glow
