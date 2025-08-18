@@ -10,8 +10,10 @@
       <a mat-list-item href="#">CV</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary" class="toolbar-mobile">
+  <mat-sidenav-content (scroll)="onContentScroll($event)">
+    <mat-toolbar class="toolbar-mobile"
+    [class.glass-header]="isBlurredHeader"
+    >
       <button class="toolbar-item"
         type="button"
         aria-label="Toggle sidenav"
@@ -29,7 +31,8 @@
       </a>
     </mat-toolbar>
 
-    <mat-toolbar color="primary" class="toolbar-desktop">
+    <mat-toolbar class="toolbar-desktop"
+    [class.glass-header]="isBlurredHeader">
       <button class="toolbar-item"
         type="button"
         aria-label="Toggle sidenav"

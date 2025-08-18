@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,6 +27,13 @@ export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
   private matIconRegistry = inject(MatIconRegistry);
   private sanitizer = inject(DomSanitizer);
+
+  isBlurredHeader = false;
+
+  onContentScroll(event: Event) {
+    const el = event.target as HTMLElement;
+    this.isBlurredHeader = el.scrollTop > 0;
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
