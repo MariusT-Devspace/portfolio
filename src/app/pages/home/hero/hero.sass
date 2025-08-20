@@ -1,25 +1,21 @@
+$toolbar-height-mobile: 56px
+$toolbar-height-desktop: 64px
+
 .hero
   display: flex
   flex-direction: column
   align-items: center
   height: fit-content
-  margin-top: -56px
-  padding-top: 56px
-  background-position: center
+  margin-top: -#{calc($toolbar-height-desktop * 2)}
+  padding: $toolbar-height-mobile 10px
   color: white
   font-family: 'Inter', sans-serif
-  &::after
-    position: absolute
-    content: ""
-    background: url("/hero-background.jpg") no-repeat center center/cover
-    width: 100%
-    height: 105%
-    background-size: cover
-    top: -56px
+  background: url("/hero-background.jpg") no-repeat center center/cover
+
   .overlay
     position: absolute
-    width: 115%
-    height: 756px
+    width: 100%
+    height: 105%
     top: -56px
     background-color: black
     opacity: 0.3
@@ -72,6 +68,7 @@
 
 @media only screen and (min-width: 768px)
   .hero
+    padding-top: $toolbar-height-desktop
     .hero-content
       max-width: 900px
       gap: 3rem
