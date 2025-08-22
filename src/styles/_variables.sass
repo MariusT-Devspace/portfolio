@@ -1,5 +1,7 @@
+@use "sass:color"
+
 $toolbar-height-mobile: 56px
 $toolbar-height-desktop: 64px
 
 $neon-color: #2DD4BF
-$neon-glow: lighten($neon-color, 20%)
+$neon-glow: color.adjust($neon-color, $lightness: 20%)
