@@ -1,12 +1,10 @@
 import { Component, input } from '@angular/core';
-import { MatCard, MatCardContent, MatCardFooter } from '@angular/material/card';
+import { MatCard } from '@angular/material/card';
 
 @Component({
   selector: 'app-skill',
   imports: [
-    MatCard,
-    MatCardContent,
-    MatCardFooter
+    MatCard
 ],
   templateUrl: './skill.html',
   styleUrl: './skill.sass'

@@ -3,12 +3,19 @@
   flex-wrap: wrap
   flex-direction: column
   align-items: start
-  .skill-list
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
+  gap: 20px
+  .skills-category-card
     width: 100%
-    gap: 20px  
-    app-skill
-      width: 40% !important
-      max-width: 200px
+    max-width: 1200px
+    margin: 0 auto
+    padding: 5px 20px 20px 20px
+    background: var(--mat-sys-surface-container-lowest) !important
+    .skill-list
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      padding: 20px
+      gap: 20px
+      app-skill
+        width: 40% !important
+        max-width: 200px
