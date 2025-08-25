@@ -8,14 +8,28 @@
     width: 100%
     max-width: 1200px
     margin: 0 auto
-    padding: 5px 20px 20px 20px
+    padding: 10px
     background: var(--mat-sys-surface-container-lowest) !important
+    .skills-category-title
+      font-size: 1.5rem
+      font-weight: 600
+      color: var(--mat-sys-on-surface-variant)
     .skill-list
       display: flex
       flex-wrap: wrap
       justify-content: center
-      padding: 20px
-      gap: 20px
+      gap: 10px
+      padding-top: 20px
       app-skill
-        width: 40% !important
+        width: 46% !important
         max-width: 200px
+
+@media only screen and (min-width: 768px)
+  .skills
+    .skills-category-card
+      padding: 16px 25px 25px 25px
+      .skill-list
+        padding-top: 40px
+        gap: 20px
+        app-skill
+          width: 40% !important
